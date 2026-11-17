@@ -1,61 +1,256 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HRB 653 · Week 13 — Echinacea Formulary Decision Studio</title><style>
-:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#1c2937;background:#f4f6f8}*{box-sizing:border-box}body{margin:0}header{padding:22px 4vw;background:#183b58;color:#fff}h1{font-size:24px;margin:0 0 8px}header p{max-width:940px;margin:0;line-height:1.45;color:#deebf2}main{max-width:1380px;margin:20px auto;padding:0 18px}.grid{display:grid;grid-template-columns:340px 1fr;gap:16px}.panel{background:#fff;border:1px solid #dbe3e8;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 2px 10px #15273708}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:14px 0 8px}p{line-height:1.5}label{font-weight:650;font-size:13px;display:block;margin:12px 0 5px}select,input,textarea{font:inherit;border:1px solid #aebfc9;border-radius:6px;padding:9px;width:100%;background:#fff}textarea{min-height:80px}button{border:0;border-radius:7px;padding:10px 14px;background:#1d648d;color:white;cursor:pointer;font-weight:650}button.alt{background:#e8f0f4;color:#174761;border:1px solid #cbdae2}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.warning{background:#fff4dd;border-left:4px solid #a6751e;padding:12px 16px;margin-bottom:18px;font-size:13px;line-height:1.5}.muted{font-size:13px;color:#536572}.small{font-size:13px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}td,th{text-align:left;border-bottom:1px solid #e1e8ee;padding:8px;vertical-align:top}th{background:#eef3f6}canvas{width:100%;height:auto;border:1px solid #d4e1ea;border-radius:6px}code{font-size:12px}a{color:#155c93}.pill{border-radius:30px;background:#e6eff6;color:#1d597f;padding:4px 9px;font-size:12px;white-space:nowrap}.stats{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.stat{background:#f0f5f8;padding:9px;border-radius:8px;font-size:13px}.stat b{font-size:18px;display:block}.record{max-height:300px;overflow:auto}.hidden{display:none} .sectionlink{font-size:13px;color:#cde4f0} @media(max-width:900px){.grid,.grid2{grid-template-columns:1fr}}
-.pdf-report{display:none}
-.pdf-report h1{font-size:24px;margin:0 0 4px}.pdf-report h2{font-size:18px;margin:20px 0 8px}
-.pdf-report h3{font-size:15px;margin:14px 0 6px}.pdf-report p{margin:6px 0;line-height:1.45}
-.pdf-report .run-card{border:1px solid #cfd8df;border-radius:8px;padding:12px;margin:12px 0;break-inside:avoid}
-.pdf-report .record-meta{font-size:12px;color:#526477}.pdf-report img{max-width:100%;height:auto;border:1px solid #d8e1e8;margin-top:8px}
-.pdf-report table{width:100%;border-collapse:collapse;font-size:12px}.pdf-report th,.pdf-report td{border:1px solid #d8e1e8;padding:6px;vertical-align:top}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HRB 653 · Week 13 — Echinacea Formulary Process-Design Studio</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:#1c2937;background:#f4f6f8}*{box-sizing:border-box}body{margin:0}header{padding:22px 4vw;background:#183b58;color:#fff}h1{font-size:24px;margin:0 0 8px}header p{max-width:980px;margin:0;line-height:1.45;color:#deebf2}main{max-width:1420px;margin:20px auto;padding:0 18px}.grid{display:grid;grid-template-columns:minmax(330px,390px) 1fr;gap:16px;align-items:start}.panel{background:#fff;border:1px solid #dbe3e8;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 2px 10px #15273708}h2{font-size:18px;margin:0 0 12px}h3{font-size:15px;margin:14px 0 8px}p{line-height:1.5}label{font-weight:650;font-size:13px;display:block;margin:12px 0 5px}select,input,textarea{font:inherit;border:1px solid #aebfc9;border-radius:6px;padding:9px;width:100%;background:#fff}textarea{min-height:72px;resize:vertical}button{border:0;border-radius:7px;padding:10px 14px;background:#1d648d;color:white;cursor:pointer;font-weight:650}button.alt{background:#e8f0f4;color:#174761;border:1px solid #cbdae2}button.danger{background:#f6ece8;color:#7a3824;border:1px solid #e4c7bd}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.warning{background:#fff4dd;border-left:4px solid #a6751e;padding:12px 16px;margin-bottom:18px;font-size:13px;line-height:1.5}.info{background:#edf5fb;border-left:4px solid #6b93ad;padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.5}.muted{font-size:13px;color:#536572}.small{font-size:13px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}td,th{text-align:left;border-bottom:1px solid #e1e8ee;padding:8px;vertical-align:top}th{background:#eef3f6}.pill{display:inline-block;border-radius:30px;background:#e6eff6;color:#1d597f;padding:4px 9px;font-size:12px;white-space:nowrap}.status{display:inline-block;padding:4px 8px;border-radius:14px;font-size:12px;font-weight:650}.ok{background:#e6f2e9;color:#2d6840}.need{background:#fff2dc;color:#815916}.record{max-height:360px;overflow:auto}.hidden{display:none!important}.stepbox{border:1px solid #dce5eb;border-radius:8px;padding:12px;margin:10px 0;background:#fbfdfe}.stepbox strong{display:block;margin-bottom:4px}.compact td,.compact th{padding:7px}.pdf-report{display:none}.pdf-report h1{font-size:24px;margin:0 0 4px}.pdf-report h2{font-size:18px;margin:20px 0 8px}.pdf-report h3{font-size:15px;margin:14px 0 6px}.pdf-report p{margin:6px 0;line-height:1.45}.pdf-report table{width:100%;border-collapse:collapse;font-size:12px}.pdf-report th,.pdf-report td{border:1px solid #d8e1e8;padding:6px;vertical-align:top}.pdf-report .record-meta{font-size:12px;color:#526477}
+@media(max-width:980px){.grid,.grid2,.grid3{grid-template-columns:1fr}}
+@media print{body{background:white}body>header{display:none!important}main>*:not(#pdfReport){display:none!important}#pdfReport{display:block!important}#pdfReport .panel{box-shadow:none;border:0;padding:0;margin:0}@page{margin:.55in}}
+</style>
+</head>
+<body>
+<header>
+<h1>HRB 653 · Week 13 — Echinacea Formulary Process-Design Studio</h1>
+<p>200 points · Carry forward Week 12 evidence, design a constrained manufacturing process, connect each operation to a measurement and decision, and document a defensible development recommendation.</p>
+</header>
+<main>
+<div class="warning"><b>Evidence boundary:</b> This is a process-design studio, not a fermentation-outcome simulator. It does not generate experimentally established changes in Echinacea composition, cytokine activity, or clinical efficacy. Fermentation settings are design variables that determine what controls and evidence would be required. Students must use the assigned literature and their Week 10–12 records for scientific claims.</div>
+<div class="panel small" id="recordInstructions"><h2>Document your investigation — Week 13 Formulary Decision Record</h2><p>This studio keeps a separate Week 13 record. Use your submitted Week 12 PDF Laboratory Record, Week 12 assignment, and faculty feedback as the evidence you carry forward. The studio autosaves entries in this browser. At the end, select <b>Create PDF Formulary Decision Record</b>; in the browser print/save window choose <b>Save as PDF</b> and submit that PDF with the Week 13 assignment.</p></div>
 
-@media print{
-  body{background:white}
-  body>header{display:none!important}
-  main>*:not(#pdfReport){display:none!important}
-  #pdfReport{display:block!important}
-  #pdfReport .panel{box-shadow:none;border:0;padding:0;margin:0}
-  @page{margin:.55in}
-}
+<div class="grid">
+<section>
+<div class="panel">
+<h2>1. Carry forward Week 12 evidence</h2>
+<p class="muted">Enter only the Week 12 results, limitations, or feedback that materially affect the final process.</p>
+<label for="w12summary">Week 12 evidence carried forward</label>
+<textarea id="w12summary" placeholder="Specific run, measured result, limitation, provisional target, or faculty feedback"></textarea>
+</div>
 
-</style></head><body><header><h1>HRB 653 · Week 13 — Echinacea Formulary Decision Studio</h1><p>200 points · Integrate the Week 12 laboratory record, compare manufacturing strategies, assess fit-for-purpose specifications, and document evidence-based revision.</p></header><main>
-<div class="warning"><b>Not a virtual fermentation experiment:</b> The fermentation outcomes shown here are explicit <b>hypothetical decision scenarios</b>, not experimentally established changes in Echinacea composition. This module tests the logic and traceability of manufacturing decisions, not fermentation kinetics, cytokine activity, or clinical efficacy. It does not identify a clinically effective formula or substantiate prevention of cytokine storm.</div>
-<div class="panel small" id="recordInstructions"><h2>Document your investigation — Week 13 Formulary Decision Record</h2><p>This studio keeps a separate Week 13 record. Use your submitted Week 12 PDF laboratory record and faculty feedback as the evidence you carry forward; no data file needs to be imported. Record the Week 12 evidence that matters, document each reconsidered decision, and complete the Week 13 development decision. At the end, select <b>Create PDF Formulary Decision Record</b>. Your browser will open its print/save interface; choose <b>Save as PDF</b>, choose where to save the file, and upload that PDF with the Week 13 Canvas assignment.</p></div><div class="grid"><section class="controls"><div class="panel"><h2>1. Carry forward Week 12 evidence</h2><p class="muted">Open your submitted Week 12 PDF laboratory record and faculty feedback. Enter the specific Week 12 result or results that matter to the Week 13 decision. This is a new Week 13 record; it does not import or overwrite the Week 12 laboratory record.</p><label for="w12summary">Week 12 evidence carried forward</label><textarea id="w12summary" placeholder="Identify the specific Week 12 run, result, limitation, or faculty feedback that matters to this decision."></textarea></div>
-<div class="panel"><h2>2. Define the product</h2><label for="material">Starting material</label><select id="material"><option value="R1">R1 — E. purpurea dried root, 70% EtOH</option><option value="R2">R2 — E. angustifolia dried root, 70% EtOH</option><option value="F1">F1 — E. purpurea flower, water</option><option value="F2">F2 — E. purpurea flower, 30% EtOH</option><option value="F3">F3 — E. purpurea flower, 70% EtOH</option></select><label for="route">Candidate processing route</label><select id="route"><option value="plain">Extraction only; nonfermented control</option><option value="ferment">Extraction + defined fermentation hypothesis</option><option value="blend">Fermentation + separate extract/add-back hypothesis</option></select><label for="purpose">Intended product and constraints</label><textarea id="purpose" placeholder="Oral product, quality targets, manufacturing limits, evidence limits"></textarea><button id="evaluate">Re-evaluate the process</button></div>
-<div class="panel"><h2>3. Reconstruct a Week 12 decision</h2><label for="original">What did you originally conclude?</label><textarea id="original"></textarea><label for="challenge">Which specific analytical result, feedback, or new evidence challenged it?</label><textarea id="challenge"></textarea><label for="revision">What do you now retain, revise, or reject?</label><textarea id="revision"></textarea><label for="consequence">Where does that change affect the manufacturing process?</label><textarea id="consequence"></textarea><button class="alt" id="saveRevision">Add to revision audit</button></div>
-<div class="panel"><h2>4. Make a development decision</h2><label for="recommendation">Decision</label><select id="recommendation"><option value="revise">Revise process / gather data</option><option value="advance">Advance only to further nonclinical investigation</option><option value="stop">Stop pending critical evidence</option></select><label for="test">Single highest-information next test</label><textarea id="test" placeholder="Specific test, what is held constant, what result would reverse the decision"></textarea><label for="evidence">Evidence vs inference vs unknowns</label><textarea id="evidence"></textarea><div class="buttons"><button id="pdf">Create PDF Formulary Decision Record</button></div></div></section><section>
-<div class="panel"><h2>Carried-forward analytical evidence</h2><div id="w12panel"><p class="muted">No Week 12 evidence has been entered yet. Use your submitted Week 12 PDF record and faculty feedback.</p></div></div>
-<div class="panel"><h2>Manufacturing comparison</h2><p class="muted">The following is a process-control comparison; it contains no measured fermentation effects. Change route/material and select <b>Re-evaluate</b>.</p><table><thead><tr><th>Decision dimension</th><th>Nonfermented route</th><th>Selected route</th></tr></thead><tbody id="routes"></tbody></table><div id="risk" class="warning"></div></div>
-<div class="panel"><h2>Proposed quality-control checkpoints</h2><table><thead><tr><th>Checkpoint</th><th>Example control / evidence</th><th>Cannot conclude</th></tr></thead><tbody><tr><td>Botanical acceptance</td><td>Authenticated species/plant part; supplier COA plus identity verification</td><td>Equivalent biological activity</td></tr><tr><td>Extraction intermediate</td><td>Solvent ratio, batch mass balance, LC-UV marker profiles, repeatability</td><td>Constituents not detectable by UV</td></tr><tr><td>Fermentation if adopted</td><td>Defined organism, pH/time/temperature, microbial testing, chemical before/after control</td><td>Reduced cytokine-storm risk</td></tr><tr><td>Finished product</td><td>Quantitative markers, stability/packaging, microbial and contaminant limits</td><td>Human clinical efficacy from chemical composition</td></tr></tbody></table></div>
-<div class="panel"><h2>Revision audit</h2><div class="scroll"><table><thead><tr><th>Decision</th><th>Challenge</th><th>Revised position</th><th>Process effect</th></tr></thead><tbody id="audit"></tbody></table></div><p class="muted">Retaining a judgment after a serious challenge is valid; document what evidence justified retention.</p></div>
-<div class="panel"><h2>Evidence boundaries for biological claims</h2><p>Relevant literature includes human-cell inflammatory response measurements (Vieira et al., 2023), human clinical studies of particular Echinacea preparations (Weishaupt et al., 2020; Lee et al., 2024), safety synthesis (Ogal et al., 2026), and fermentation studies (Rizzello et al., 2013). These datasets involve different materials, processes, doses, and endpoints.</p><p><b>Do not:</b> infer enhanced phagocytosis from a UV chromatogram, equate suppression of IL-6 with clinical cytokine-storm prevention, or treat a fermentation hypothesis as a confirmed processing benefit.</p></div>
-</section></div><div class="panel small"><b>References for independent student research:</b> Vieira et al. (2023), doi:10.3390/antiox12020425; Rizzello et al. (2013), doi:10.1186/1475-2859-12-44; Weishaupt et al. (2020), doi:10.3390/children7120292; Ogal et al. (2026), doi:10.1055/a-2992-1199. No result in this application substitutes for reading those papers or independently validating batch specifications.</div>
-<section id="pdfReport" class="pdf-report"></section><script>
-function $(id){return document.getElementById(id)}
+<div class="panel">
+<h2>2. Define the product and starting material</h2>
+<label for="material">Starting material</label>
+<select id="material">
+<option value="R1">E. purpurea dried root — carry forward R1 evidence</option>
+<option value="R2">E. angustifolia dried root — carry forward R2 evidence</option>
+<option value="F">E. purpurea floral material — carry forward F1/F2/F3 evidence</option>
+</select>
+<label for="productForm">Intended product form</label>
+<select id="productForm">
+<option>Liquid extract</option><option>Dry extract in capsule/tablet</option><option>Powdered extract for reconstitution</option><option>Other oral product</option>
+</select>
+<label for="purpose">Intended product purpose and constraints</label>
+<textarea id="purpose" placeholder="Define the intended use, quality targets, and important evidence or manufacturing constraints"></textarea>
+<label for="rawMaterialEvidence">Supplier documentation and identity evidence</label>
+<textarea id="rawMaterialEvidence" placeholder="Specify the supplier records and independent identity evidence required before use"></textarea>
+<label for="materialAttributes">Raw-material attributes to control</label>
+<textarea id="materialAttributes" placeholder="Species, plant part, processing history, moisture or other material attributes relevant to this product"></textarea>
+<label for="packagingStorage">Packaging, storage, and stability plan</label>
+<textarea id="packagingStorage" placeholder="Identify the proposed packaging/storage conditions and what stability evidence would be needed"></textarea>
+<label for="route">Candidate processing route</label>
+<select id="route">
+<option value="plain">Extraction only — nonfermented route</option>
+<option value="ferment">Extraction + defined fermentation step</option>
+<option value="blend">Extraction + fermentation + separate extract/add-back</option>
+</select>
+</div>
+
+<div class="panel">
+<h2>3. Design the primary extraction</h2>
+<p class="muted">These settings define the proposed process. The studio does not predict a chemical outcome from them.</p>
+<div class="grid2">
+<div><label for="prep">Sample preparation</label><select id="prep"><option>Dried, milled to approximately 1 mm</option><option>Dried, coarse milled</option><option>Fresh chopped material</option><option>Other defined preparation</option></select></div>
+<div><label for="solvent">Extraction solvent</label><select id="solvent"><option>Water</option><option>30% ethanol</option><option selected>70% ethanol</option><option>Other defined solvent system</option></select></div>
+<div><label for="ratio">Plant-to-solvent ratio</label><select id="ratio"><option>1:5 w/v</option><option selected>1:10 w/v</option><option>1:20 w/v</option><option>Other defined ratio</option></select></div>
+<div><label for="extractTemp">Extraction temperature</label><select id="extractTemp"><option selected>25 °C</option><option>40 °C</option><option>60 °C</option><option>Other defined temperature</option></select></div>
+<div><label for="extractTime">Extraction time</label><select id="extractTime"><option>30 min</option><option selected>60 min</option><option>120 min</option><option>Other defined time</option></select></div>
+<div><label for="agitation">Agitation</label><select id="agitation"><option selected>Controlled agitation</option><option>No agitation</option><option>Other defined agitation</option></select></div>
+</div>
+<label for="extractionRationale">Why this extraction route?</label>
+<textarea id="extractionRationale" placeholder="Connect the selected conditions to Week 12 evidence and the chemical characteristics you intend to retain, monitor, or reduce"></textarea>
+</div>
+
+<div class="panel hidden" id="fermentationPanel">
+<h2>4. Define the fermentation comparison</h2>
+<div class="info">A matched nonfermented control is automatically part of the design. Enter conditions only when supported or explicitly framed as a hypothesis to test.</div>
+<label for="organism">Microbial strain/source</label>
+<input id="organism" type="text" placeholder="Name the strain/source supported by the assigned evidence">
+<label for="substrate">Fermentation substrate</label>
+<select id="substrate"><option>Selected botanical extract</option><option>Botanical solids after extraction</option><option>Defined medium containing selected extract</option><option>Other defined substrate</option></select>
+<div class="grid3">
+<div><label for="fermTemp">Temperature</label><input id="fermTemp" type="text" placeholder="e.g., reported study condition"></div>
+<div><label for="fermTime">Time</label><input id="fermTime" type="text" placeholder="e.g., hours"></div>
+<div><label for="fermEndpoint">Endpoint / pH</label><input id="fermEndpoint" type="text" placeholder="Defined endpoint"></div>
+</div>
+<label for="microControl">Microbial-quality control</label>
+<select id="microControl"><option>Starter identity/purity + contamination screen</option><option>Viable count + contamination screen</option><option>Starter identity/purity + viable count + contamination screen</option><option>Other justified microbial control</option></select>
+<label for="fermChange">Constituent changes that must be tested</label>
+<textarea id="fermChange" placeholder="Identify classes potentially increased, liberated, decreased, transformed, or lost; do not state them as outcomes unless measured"></textarea>
+<label for="fermEvidence">Evidence supporting or questioning this fermentation design</label>
+<textarea id="fermEvidence" placeholder="What is measured in the literature, what is hypothesized, and what must still be tested in this product?"></textarea>
+</div>
+
+<div class="panel hidden" id="addbackPanel">
+<h2>5. Define the add-back/blending hypothesis</h2>
+<label for="addbackMaterial">Separate extract or fraction proposed for add-back</label>
+<input id="addbackMaterial" type="text" placeholder="Identify the material or constituent class">
+<label for="addbackReason">Why is add-back being considered?</label>
+<textarea id="addbackReason" placeholder="Identify the evidence that a desired constituent or characteristic may be depleted, transformed, or insufficient"></textarea>
+<label for="addbackCheck">How will composition and stability be rechecked after blending?</label>
+<textarea id="addbackCheck" placeholder="Specify the analytical or stability measurement needed"></textarea>
+</div>
+
+<div class="panel">
+<h2>6. Reconstruct a Week 12 decision</h2>
+<label for="original">Original Week 12 decision</label><textarea id="original"></textarea>
+<label for="challenge">Evidence or feedback that challenged it</label><textarea id="challenge"></textarea>
+<label for="revision">Retain, revise, or reject?</label><textarea id="revision"></textarea>
+<label for="consequence">Effect on the manufacturing process</label><textarea id="consequence"></textarea>
+<div class="buttons"><button id="saveRevision" type="button" class="alt">Add to revision audit</button></div>
+</div>
+
+<div class="panel">
+<h2>7. Make the development decision</h2>
+<label for="recommendation">Decision</label>
+<select id="recommendation"><option value="revise">Revise process / gather data</option><option value="advance">Advance to further investigation</option><option value="stop">Stop pending critical evidence</option></select>
+<label for="test">Single highest-information next test</label>
+<textarea id="test" placeholder="Specify the test, what is held constant, and what result could reverse the decision"></textarea>
+<label for="evidence">Evidence vs inference vs unknowns</label>
+<textarea id="evidence" placeholder="Separate what is documented, inferred, hypothesized, and unsupported"></textarea>
+</div>
+</section>
+
+<section>
+<div class="panel">
+<h2>Current process design</h2>
+<p class="muted">This summary updates as you change the constrained settings. It describes the process you designed; it does not predict chemical or biological outcomes.</p>
+<div id="processSummary"></div>
+</div>
+
+<div class="panel">
+<h2>Manufacturing-process control builder</h2>
+<p class="muted">Use this to build the process-control table required in Question 4. For each major operation, connect a plausible failure or uncertainty to a measurement and a decision.</p>
+<div class="grid2">
+<div><label for="pcStage">Process stage</label><select id="pcStage"></select></div>
+<div><label for="pcFailure">Potential failure / uncertainty</label><input id="pcFailure" type="text" placeholder="What could go wrong or remain uncertain?"></div>
+</div>
+<label for="pcMeasure">Observable/process measurement</label><input id="pcMeasure" type="text" placeholder="What would you measure or verify?">
+<label for="pcDecision">Decision supported by that measurement</label><input id="pcDecision" type="text" placeholder="What would the result make you retain, change, reject, or investigate?">
+<div class="buttons"><button id="addProcessControl" type="button">Add process control</button></div>
+<div class="scroll record"><table class="compact"><thead><tr><th>Stage</th><th>Failure / uncertainty</th><th>Measurement / control</th><th>Decision</th><th></th></tr></thead><tbody id="processControls"></tbody></table></div>
+</div>
+
+<div class="panel">
+<h2>Analytical-control plan</h2>
+<p class="muted">Use this for Question 5. Add only measurements that answer a defined quality or process question. A numerical target may remain provisional or not yet established.</p>
+<div class="grid2">
+<div><label for="anStage">Testing stage</label><select id="anStage"><option>Raw material</option><option>Extraction intermediate</option><option>Post-fermentation intermediate</option><option>Blend / add-back intermediate</option><option>Finished product</option><option>Stability study</option></select></div>
+<div><label for="anMethod">Method / evidence</label><select id="anMethod"><option>LC-UV quantitative assay</option><option>Chromatographic identity/fingerprint method</option><option>Botanical or DNA identity evidence</option><option>Microbial testing</option><option>Polysaccharide/complementary chemical method</option><option>Stability-indicating measurement</option><option>Supplier qualification/documentation</option><option>Other justified method</option></select></div>
+</div>
+<label for="anCharacteristic">Characteristic or analyte</label><input id="anCharacteristic" type="text" placeholder="What is being measured or verified?">
+<label for="anStatus">Status of numerical limit</label><select id="anStatus"><option>Measured value only</option><option>Provisional development target</option><option>Evidence potentially suitable for future specification development</option><option>No defensible numerical limit yet</option></select>
+<label for="anBasis">Evidence basis / limitation</label><textarea id="anBasis" placeholder="Calibration, batch evidence, units, comparability, or reason a complementary method is needed"></textarea>
+<div class="buttons"><button id="addAnalytical" type="button">Add analytical control</button></div>
+<div class="scroll record"><table class="compact"><thead><tr><th>Stage</th><th>Characteristic</th><th>Method</th><th>Status</th><th>Basis / limitation</th><th></th></tr></thead><tbody id="analyticalPlan"></tbody></table></div>
+</div>
+
+<div class="panel">
+<h2>Route comparison and evidence requirements</h2>
+<table><thead><tr><th>Decision dimension</th><th>Nonfermented route</th><th>Your selected route</th></tr></thead><tbody id="routes"></tbody></table>
+<div id="risk" class="warning"></div>
+</div>
+
+<div class="panel">
+<h2>Revision audit</h2>
+<div class="scroll record"><table><thead><tr><th>Original decision</th><th>Challenge</th><th>Revised position</th><th>Process effect</th><th></th></tr></thead><tbody id="audit"></tbody></table></div>
+</div>
+
+<div class="panel">
+<h2>Completion check</h2>
+<div id="completion"></div>
+<div class="buttons"><button id="pdf" type="button">Create PDF Formulary Decision Record</button><button id="clear" type="button" class="danger">Clear Week 13 record</button></div>
+</div>
+
+<div class="panel small"><h2>Evidence boundaries for biological claims</h2><p>Use the assigned human-cell, human clinical, safety, and fermentation literature as separate evidence streams. Compare material, process, dose, and endpoint before applying published results to the proposed product.</p><p><b>Do not infer:</b> enhanced phagocytosis from a UV chromatogram; clinical prevention of excessive inflammation from reduced IL-6 in a cell model; or a confirmed processing benefit from a fermentation hypothesis that has not been measured in the proposed product.</p></div>
+</section>
+</div>
+<section id="pdfReport" class="pdf-report"></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const KEY='HRB653_W13_PROCESS_STUDIO_V2';
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function download(name,body,mime='application/json'){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([body],{type:mime}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
-function gauss(t,mu,sig){return Math.exp(-.5*((t-mu)/sig)**2)}
-function noise(t,seed=0){return .002*Math.sin(t*9.17+seed)*Math.sin(t*2.34+seed*.7)}
-function peakArea(p){return 2.506628*p.amp*p.width}
-function drawChrom(c,peaks,opt={}){const ctx=c.getContext('2d'),W=c.width,H=c.height,L=67,R=24,T=37,B=47,ww=W-L-R,hh=H-T-B,maxT=opt.maxT||36;ctx.clearRect(0,0,W,H);ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);ctx.strokeStyle='#e2e9ee';ctx.lineWidth=1;for(let j=0;j<=4;j++){let y=T+j*hh/4;ctx.beginPath();ctx.moveTo(L,y);ctx.lineTo(L+ww,y);ctx.stroke()}ctx.strokeStyle='#344b5d';ctx.beginPath();ctx.moveTo(L,T);ctx.lineTo(L,T+hh);ctx.lineTo(L+ww,T+hh);ctx.stroke();ctx.fillStyle='#30485c';ctx.font='13px system-ui';ctx.fillText('UV signal — arbitrary units (modeled)',L,T-14);ctx.fillText('Retention time (min)',W/2-65,H-8);for(let j=0;j<=6;j++){let x=L+j*ww/6;ctx.fillText((j*maxT/6).toFixed(0),x-6,T+hh+22)}let ymax=Math.max(.3,...Array.from({length:320},(_,i)=>peaks.reduce((sum,p)=>sum+p.amp*gauss(i/319*maxT,p.time,p.width),0)))*1.23;ctx.strokeStyle='#1c6d9a';ctx.lineWidth=2.4;ctx.beginPath();for(let x=0;x<=ww;x++){let tt=x/ww*maxT;let amp=.009+noise(tt,4)+peaks.reduce((sum,p)=>sum+p.amp*gauss(tt,p.time,p.width),0);let y=T+hh-Math.max(0,amp)/ymax*hh;if(x===0)ctx.moveTo(L+x,y);else ctx.lineTo(L+x,y)}ctx.stroke();ctx.fillStyle='#193d59';ctx.font='12px system-ui';peaks.forEach(p=>{let x=L+p.time/maxT*ww;if(x<L||x>L+ww)return;let y=T+hh-(p.amp+.01)/ymax*hh;ctx.fillText(p.label||p.name,x-17,Math.max(T+13,y-8))});}
-function readStore(key){try{return JSON.parse(localStorage.getItem(key)||'[]')}catch(e){return []}}
-function writeStore(key,val){try{localStorage.setItem(key,JSON.stringify(val))}catch(e){alert('Local storage unavailable; export your lab record before leaving.')}}
-function addRows(tbody,items,cols){tbody.innerHTML=items.length?items.map((r,i)=>'<tr>'+cols.map(c=>'<td>'+esc(typeof c==='function'?c(r,i):r[c])+'</td>').join('')+'</tr>').join(''):'<tr><td colspan="8">No saved records.</td></tr>'}
-function round(n,k=2){return Number(n).toFixed(k)}
-
-const KEY='HRB653_W13_STUDIO';let state=readStore(KEY);if(Array.isArray(state))state={revisions:[],w12summary:''};let revisions=state.revisions||[],w12summary=state.w12summary||'';
-function save(){writeStore(KEY,{revisions,w12summary})}
-function renderW12(){let root=$('w12panel');if(!w12summary.trim()){root.innerHTML='<p class="muted">No Week 12 evidence has been entered yet. Use your submitted Week 12 PDF record and faculty feedback.</p>';return}root.innerHTML='<p>'+esc(w12summary)+'</p><p class="muted">This is a student-entered carry-forward summary. The submitted Week 12 PDF remains the frozen laboratory record.</p>'}
-$('w12summary').value=w12summary;
-$('w12summary').oninput=()=>{w12summary=$('w12summary').value;save();renderW12()};
-const controls={plain:['No additional microbial process','Track extraction solvent and chemical fingerprint','Lower process complexity, but no proven immune balance'],ferment:['Define organism, inoculum, temperature, time and pH endpoint','Add paired pre/post chemical and microbiological tests','Potential chemical transformation is hypothetical until measured'],blend:['Define fermentation plus authenticated added-back fraction','Monitor both component extracts and final blended profile','Requires stronger mass balance, compatibility and stability evidence']};
-function evaluate(){let mat=$('material').value,route=$('route').value,ctl=controls[route];let out=[['Processing complexity','Extraction, filtration, storage',ctl[0]],['Chemical measurement','LC-UV analyte-specific assay',ctl[1]],['Biological interpretation','Independent human-cell data required',ctl[2]],['Release criteria','Validated method and qualified limits required','Cannot use modeled classroom numbers as product acceptance limits']];$('routes').innerHTML=out.map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('');let warn='';if(!w12summary.trim()){warn='No Week 12 evidence has been carried forward yet. Consult the submitted Week 12 PDF record before making an evidence-based development decision.'}else{warn='Week 12 evidence has been carried forward as a student summary. Verify the specific run and limitation against the submitted Week 12 PDF record.'}if(route!=='plain')warn+=' A matched nonfermented control and actual microbiological and chemical before/after measurements would be required.';$('risk').textContent=warn}
-function renderAudit(){addRows($('audit'),revisions,['original','challenge','revision','consequence'])}
-$('saveRevision').onclick=()=>{let record={original:$('original').value.trim(),challenge:$('challenge').value.trim(),revision:$('revision').value.trim(),consequence:$('consequence').value.trim()};if(!record.original||!record.challenge||!record.revision||!record.consequence){alert('Complete all four revision fields.');return}revisions.push(record);save();renderAudit()};
-function buildWeek13Pdf(){
-  if(!w12summary.trim()){alert('Enter the Week 12 evidence you are carrying forward before creating the PDF record.');return false}
-  let rows=revisions.length?revisions.map(r=>'<tr><td>'+esc(r.original)+'</td><td>'+esc(r.challenge)+'</td><td>'+esc(r.revision)+'</td><td>'+esc(r.consequence)+'</td></tr>').join(''):'<tr><td colspan="4">No revision entries saved.</td></tr>';
-  $('pdfReport').innerHTML='<div class="panel"><h1>Week 13 · Echinacea Formulary Decision Record</h1><p class="record-meta">Created '+esc(new Date().toLocaleString())+' · hypothetical decision studio</p><h2>Week 12 evidence carried forward</h2><p>'+esc(w12summary)+'</p><h2>Product definition</h2><p><b>Starting material:</b> '+esc($('material').options[$('material').selectedIndex].text)+'<br><b>Processing route:</b> '+esc($('route').options[$('route').selectedIndex].text)+'<br><b>Intended product and constraints:</b> '+esc($('purpose').value||'—')+'</p><h2>Revision audit</h2><table><thead><tr><th>Original decision</th><th>Challenge</th><th>Revised position</th><th>Process effect</th></tr></thead><tbody>'+rows+'</tbody></table><h2>Development decision</h2><p><b>Decision:</b> '+esc($('recommendation').options[$('recommendation').selectedIndex].text)+'</p><p><b>Single highest-information next test:</b> '+esc($('test').value||'—')+'</p><p><b>Evidence vs inference vs unknowns:</b> '+esc($('evidence').value||'—')+'</p></div>';
-  return true
+function getStored(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
+let state=Object.assign({revisions:[],processControls:[],analyticalPlan:[]},getStored());
+function saveState(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+const fieldIds=['w12summary','material','productForm','purpose','rawMaterialEvidence','materialAttributes','packagingStorage','route','prep','solvent','ratio','extractTemp','extractTime','agitation','extractionRationale','organism','substrate','fermTemp','fermTime','fermEndpoint','microControl','fermChange','fermEvidence','addbackMaterial','addbackReason','addbackCheck','recommendation','test','evidence'];
+function captureFields(){fieldIds.forEach(id=>{let el=$(id);if(el)state[id]=el.value});saveState()}
+function restoreFields(){fieldIds.forEach(id=>{let el=$(id);if(el&&state[id]!=null)el.value=state[id]})}
+function routeUsesFermentation(){return $('route').value==='ferment'||$('route').value==='blend'}
+function routeUsesAddback(){return $('route').value==='blend'}
+function stages(){let s=['Raw-material acceptance','Sample preparation','Primary extraction','Filtration / concentration'];if(routeUsesFermentation())s.push('Fermentation');if(routeUsesAddback())s.push('Add-back / blending');s.push('Dosage-form manufacture','Packaging / storage','Finished-product release','Stability investigation');return s}
+function refreshStageOptions(){let current=$('pcStage').value,opts=stages();$('pcStage').innerHTML=opts.map(x=>'<option>'+esc(x)+'</option>').join('');if(opts.includes(current))$('pcStage').value=current}
+function updateVisibility(){ $('fermentationPanel').classList.toggle('hidden',!routeUsesFermentation());$('addbackPanel').classList.toggle('hidden',!routeUsesAddback());refreshStageOptions() }
+function processDescription(){
+  let rows=[
+    ['Starting material',$('material').options[$('material').selectedIndex].text,'Confirm species/plant part and supplier identity evidence'],
+    ['Sample preparation',$('prep').value,'Control material preparation before extraction'],
+    ['Primary extraction',$('solvent').value+' · '+$('ratio').value+' · '+$('extractTemp').value+' · '+$('extractTime').value+' · '+$('agitation').value,'Measure whether the intended chemical/process target was achieved']
+  ];
+  if(routeUsesFermentation()){
+    let fdesc=($('organism').value||'Organism/source not yet defined')+' · '+$('substrate').value+' · '+($('fermTemp').value||'temperature not set')+' · '+($('fermTime').value||'time not set')+' · '+($('fermEndpoint').value||'endpoint not set');
+    rows.push(['Fermentation',fdesc,'Compare with a matched nonfermented control; measure chemical and microbial consequences rather than assuming them']);
+  }
+  if(routeUsesAddback()) rows.push(['Add-back / blending',$('addbackMaterial').value||'Add-back material not yet defined','Recheck final composition and stability after blending']);
+  rows.push(['Dosage form',$('productForm').value,'Confirm process compatibility and final-product quality']);
+  rows.push(['Finished product / stability','Packaging, storage, release testing and stability plan','Use qualified analytical and complementary methods; do not convert classroom values into validated specifications']);
+  return rows
 }
-$('pdf').onclick=()=>{if(!buildWeek13Pdf())return;let oldTitle=document.title;document.title='HRB653_Week13_Formulary_Decision_Record';setTimeout(()=>{window.print();setTimeout(()=>{document.title=oldTitle},500)},100)};
-$('material').onchange=evaluate;$('route').onchange=evaluate;renderW12();renderAudit();evaluate();
-</script></main></body></html>
+function renderProcessSummary(){let rows=processDescription();$('processSummary').innerHTML='<table><thead><tr><th>Stage</th><th>Current design</th><th>Required decision logic</th></tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table>'}
+const routeText={plain:['Extraction, filtration, dosage-form manufacture, storage','Track extraction conditions and chemical profile','Lower process complexity; biological claims still require independent evidence'],ferment:['Matched extraction plus defined fermentation and nonfermented control','Add organism identity, pH/time/temperature, microbial quality and paired pre/post chemical testing','Chemical transformation remains a hypothesis until measured in the proposed product'],blend:['Defined fermentation plus separate authenticated add-back component','Track fermented component, add-back component and final blend','Requires mass balance, compatibility, composition and stability evidence after blending']};
+function renderRouteComparison(){let ctl=routeText[$('route').value];let rows=[['Processing complexity','Extraction, filtration, dosage-form manufacture',ctl[0]],['Chemical measurement','LC-UV or complementary analyte/profile measurements',ctl[1]],['Biological interpretation','Independent human-cell/clinical evidence required',ctl[2]],['Release criteria','Qualified methods and evidence-based limits required','Modeled classroom values cannot serve as validated product acceptance limits']];$('routes').innerHTML=rows.map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('');let msg=routeUsesFermentation()?'A matched nonfermented control is required. The studio records fermentation settings but does not predict their chemical or biological effects.':'The nonfermented route avoids an added microbial process but still requires extraction, identity, analytical, stability, and finished-product controls.';$('risk').textContent=msg}
+function renderProcessControls(){let tb=$('processControls');tb.innerHTML=state.processControls.length?state.processControls.map((r,i)=>'<tr><td>'+esc(r.stage)+'</td><td>'+esc(r.failure)+'</td><td>'+esc(r.measure)+'</td><td>'+esc(r.decision)+'</td><td><button type="button" class="alt" data-del-pc="'+i+'">Remove</button></td></tr>').join(''):'<tr><td colspan="5" class="muted">No process controls added yet.</td></tr>';tb.querySelectorAll('[data-del-pc]').forEach(b=>b.addEventListener('click',()=>{state.processControls.splice(Number(b.dataset.delPc),1);saveState();renderProcessControls();renderCompletion()}))}
+function renderAnalytical(){let tb=$('analyticalPlan');tb.innerHTML=state.analyticalPlan.length?state.analyticalPlan.map((r,i)=>'<tr><td>'+esc(r.stage)+'</td><td>'+esc(r.characteristic)+'</td><td>'+esc(r.method)+'</td><td>'+esc(r.status)+'</td><td>'+esc(r.basis)+'</td><td><button type="button" class="alt" data-del-an="'+i+'">Remove</button></td></tr>').join(''):'<tr><td colspan="6" class="muted">No analytical controls added yet.</td></tr>';tb.querySelectorAll('[data-del-an]').forEach(b=>b.addEventListener('click',()=>{state.analyticalPlan.splice(Number(b.dataset.delAn),1);saveState();renderAnalytical();renderCompletion()}))}
+function renderAudit(){let tb=$('audit');tb.innerHTML=state.revisions.length?state.revisions.map((r,i)=>'<tr><td>'+esc(r.original)+'</td><td>'+esc(r.challenge)+'</td><td>'+esc(r.revision)+'</td><td>'+esc(r.consequence)+'</td><td><button type="button" class="alt" data-del-rev="'+i+'">Remove</button></td></tr>').join(''):'<tr><td colspan="5" class="muted">No revision entries saved yet.</td></tr>';tb.querySelectorAll('[data-del-rev]').forEach(b=>b.addEventListener('click',()=>{state.revisions.splice(Number(b.dataset.delRev),1);saveState();renderAudit();renderCompletion()}))}
+function checks(){
+  const pcStages=new Set(state.processControls.map(r=>r.stage));
+  const anStages=new Set(state.analyticalPlan.map(r=>r.stage));
+  const hasIntermediate=[...anStages].some(x=>x.includes('intermediate'));
+  let c=[
+    ['Week 12 evidence entered',$('w12summary').value.trim().length>0],
+    ['Product purpose defined',$('purpose').value.trim().length>0],
+    ['Raw-material identity/supplier evidence defined',$('rawMaterialEvidence').value.trim().length>0],
+    ['Raw-material attributes to control identified',$('materialAttributes').value.trim().length>0],
+    ['Extraction rationale documented',$('extractionRationale').value.trim().length>0],
+    ['Process controls cover raw material, extraction, and finished-product release',pcStages.has('Raw-material acceptance')&&pcStages.has('Primary extraction')&&pcStages.has('Finished-product release')],
+    ['Analytical plan covers raw material, at least one intermediate, and finished product',anStages.has('Raw material')&&hasIntermediate&&anStages.has('Finished product')],
+    ['At least two Week 12 decisions audited',state.revisions.length>=2],
+    ['Highest-information next test identified',$('test').value.trim().length>0]
+  ];
+  if(routeUsesFermentation()) c.push(
+    ['Fermentation organism/source and endpoint defined',$('organism').value.trim().length>0&&$('fermEndpoint').value.trim().length>0],
+    ['Potential constituent changes to test identified',$('fermChange').value.trim().length>0],
+    ['Fermentation process control included',pcStages.has('Fermentation')],
+    ['Fermentation evidence/uncertainty documented',$('fermEvidence').value.trim().length>0]
+  );
+  if(routeUsesAddback()) c.push(
+    ['Add-back material and recheck plan defined',$('addbackMaterial').value.trim().length>0&&$('addbackCheck').value.trim().length>0],
+    ['Add-back/blending process control included',pcStages.has('Add-back / blending')]
+  );
+  return c
+}
+function renderCompletion(){let c=checks(),done=c.filter(x=>x[1]).length;$('completion').innerHTML='<p><span class="status '+(done===c.length?'ok':'need')+'">'+done+' of '+c.length+' design elements documented</span></p>'+c.map(x=>'<div class="stepbox"><strong>'+(x[1]?'Complete':'Needs attention')+'</strong>'+esc(x[0])+'</div>').join('')}
+function updateAll(){captureFields();updateVisibility();renderProcessSummary();renderRouteComparison();renderCompletion()}
+fieldIds.forEach(id=>{let el=$(id);if(el)el.addEventListener(el.tagName==='SELECT'?'change':'input',updateAll)});
+$('addProcessControl').addEventListener('click',()=>{let r={stage:$('pcStage').value,failure:$('pcFailure').value.trim(),measure:$('pcMeasure').value.trim(),decision:$('pcDecision').value.trim()};if(!r.failure||!r.measure||!r.decision){alert('Complete the failure/uncertainty, measurement, and decision fields before adding the process control.');return}state.processControls.push(r);saveState();$('pcFailure').value='';$('pcMeasure').value='';$('pcDecision').value='';renderProcessControls();renderCompletion()});
+$('addAnalytical').addEventListener('click',()=>{let r={stage:$('anStage').value,characteristic:$('anCharacteristic').value.trim(),method:$('anMethod').value,status:$('anStatus').value,basis:$('anBasis').value.trim()};if(!r.characteristic||!r.basis){alert('Identify the characteristic and its evidence basis or limitation before adding the analytical control.');return}state.analyticalPlan.push(r);saveState();$('anCharacteristic').value='';$('anBasis').value='';renderAnalytical();renderCompletion()});
+$('saveRevision').addEventListener('click',()=>{let r={original:$('original').value.trim(),challenge:$('challenge').value.trim(),revision:$('revision').value.trim(),consequence:$('consequence').value.trim()};if(!r.original||!r.challenge||!r.revision||!r.consequence){alert('Complete all four revision fields before adding the audit entry.');return}state.revisions.push(r);saveState();['original','challenge','revision','consequence'].forEach(id=>$(id).value='');renderAudit();renderCompletion()});
+function pdfTable(rows,headers){return '<table><thead><tr>'+headers.map(h=>'<th>'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(c=>'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')+'</tbody></table>'}
+function buildPdf(){captureFields();let pc=state.processControls.map(r=>[r.stage,r.failure,r.measure,r.decision]),an=state.analyticalPlan.map(r=>[r.stage,r.characteristic,r.method,r.status,r.basis]),rev=state.revisions.map(r=>[r.original,r.challenge,r.revision,r.consequence]);let fermentation=routeUsesFermentation()?'<h2>Fermentation design</h2><p><b>Organism/source:</b> '+esc($('organism').value||'—')+'<br><b>Substrate:</b> '+esc($('substrate').value)+'<br><b>Temperature:</b> '+esc($('fermTemp').value||'—')+' &nbsp; <b>Time:</b> '+esc($('fermTime').value||'—')+' &nbsp; <b>Endpoint/pH:</b> '+esc($('fermEndpoint').value||'—')+'<br><b>Microbial control:</b> '+esc($('microControl').value)+'</p><p><b>Constituent changes to test:</b> '+esc($('fermChange').value||'—')+'</p><p><b>Evidence and uncertainty:</b> '+esc($('fermEvidence').value||'—')+'</p><p><b>Matched control:</b> Same starting material and extraction route without the fermentation step.</p>':'';let addback=routeUsesAddback()?'<h2>Add-back / blending hypothesis</h2><p><b>Material:</b> '+esc($('addbackMaterial').value||'—')+'</p><p><b>Rationale:</b> '+esc($('addbackReason').value||'—')+'</p><p><b>Composition/stability recheck:</b> '+esc($('addbackCheck').value||'—')+'</p>':'';$('pdfReport').innerHTML='<div class="panel"><h1>Week 13 · Echinacea Formulary Decision Record</h1><p class="record-meta">Created '+esc(new Date().toLocaleString())+' · constrained process-design studio</p><h2>Week 12 evidence carried forward</h2><p>'+esc($('w12summary').value||'—')+'</p><h2>Product definition</h2><p><b>Starting material:</b> '+esc($('material').options[$('material').selectedIndex].text)+'<br><b>Product form:</b> '+esc($('productForm').value)+'<br><b>Processing route:</b> '+esc($('route').options[$('route').selectedIndex].text)+'<br><b>Purpose/constraints:</b> '+esc($('purpose').value||'—')+'</p><p><b>Supplier/identity evidence:</b> '+esc($('rawMaterialEvidence').value||'—')+'</p><p><b>Raw-material attributes:</b> '+esc($('materialAttributes').value||'—')+'</p><p><b>Packaging/storage/stability plan:</b> '+esc($('packagingStorage').value||'—')+'</p><h2>Primary extraction design</h2><p><b>Preparation:</b> '+esc($('prep').value)+'<br><b>Solvent:</b> '+esc($('solvent').value)+'<br><b>Plant-to-solvent ratio:</b> '+esc($('ratio').value)+'<br><b>Temperature:</b> '+esc($('extractTemp').value)+'<br><b>Time:</b> '+esc($('extractTime').value)+'<br><b>Agitation:</b> '+esc($('agitation').value)+'</p><p><b>Rationale:</b> '+esc($('extractionRationale').value||'—')+'</p>'+fermentation+addback+'<h2>Manufacturing process controls</h2>'+(pc.length?pdfTable(pc,['Stage','Failure / uncertainty','Measurement / control','Decision supported']):'<p>No process controls entered.</p>')+'<h2>Analytical-control plan</h2>'+(an.length?pdfTable(an,['Stage','Characteristic','Method / evidence','Status','Basis / limitation']):'<p>No analytical controls entered.</p>')+'<h2>Revision audit</h2>'+(rev.length?pdfTable(rev,['Original decision','Challenge','Revised position','Process effect']):'<p>No revision entries entered.</p>')+'<h2>Development decision</h2><p><b>Decision:</b> '+esc($('recommendation').options[$('recommendation').selectedIndex].text)+'</p><p><b>Highest-information next test:</b> '+esc($('test').value||'—')+'</p><p><b>Evidence vs inference vs unknowns:</b> '+esc($('evidence').value||'—')+'</p><p class="record-meta">This record documents process-design reasoning. It does not contain measured fermentation outcomes or establish clinical efficacy.</p></div>'}
+$('pdf').addEventListener('click',()=>{buildPdf();let old=document.title;document.title='HRB653_Week13_Formulary_Decision_Record';setTimeout(()=>{window.print();setTimeout(()=>document.title=old,500)},100)});
+$('clear').addEventListener('click',()=>{if(confirm('Delete the Week 13 process-design record stored in this browser?')){localStorage.removeItem(KEY);state={revisions:[],processControls:[],analyticalPlan:[]};fieldIds.forEach(id=>{let el=$(id);if(el){if(el.tagName==='SELECT')el.selectedIndex=0;else el.value=''}});$('solvent').value='70% ethanol';$('ratio').value='1:10 w/v';$('extractTemp').value='25 °C';$('extractTime').value='60 min';$('agitation').value='Controlled agitation';renderProcessControls();renderAnalytical();renderAudit();updateAll()}});
+restoreFields();updateVisibility();renderProcessControls();renderAnalytical();renderAudit();renderProcessSummary();renderRouteComparison();renderCompletion();
+</script>
+</body>
+</html>
